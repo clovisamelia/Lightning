@@ -1,14 +1,14 @@
-int startX = 0;
-int startY = 150;
-int endX = 0;
-int endY = 150;
-int lightningRed = (int)(Math.random()*100);
-int lightningGreen = (int)(Math.random()*150);
-int lightningBlue = (int)(Math.random()*185);
+int startX = (int)(Math.random()*0);
+int startY = 0;
+int endX = (int)(Math.random()*0);
+int endY = 500;
+int lightningRed = (int)(Math.random()*10 + 200);
+int lightningGreen = (int)(Math.random()*10 + 200);
+int lightningBlue = (int)(Math.random()*5);
 
 void setup()
 {
-  strokeWeight(3);
+  strokeWeight(2);
   background(0,10,45);
   size(500,500);
 
@@ -16,11 +16,11 @@ void setup()
 
 void draw()
 {
-	line(startX,startY,endX,endY);
+	//line(startX,startY,endX,endY);
 	stroke(lightningRed,lightningGreen,lightningBlue);
-  	while (endX < 500) {
-  		endX = startX + (int)(Math.random()*7);
-  		endY = startY + (int)(Math.random()*2)-5;
+  	while (endX <= 500) {
+  		endX = startX + (int)(Math.random()*5);
+  		endY = startY + (int)(Math.random()*5);
   		line(startX,startY,endX,endY);
   		startX = endX;
   		startY=endY;
@@ -28,8 +28,12 @@ void draw()
 }
 void mousePressed()
 {
-	startX = 0; 
+	startX = mouseX; 
 	startY = 0;
-	endX = 450;
-	endY = 500;
+	endX = 0;
+	endY = 0;
+	lightningRed = (int)(Math.random()*100);
+ 	lightningGreen = (int)(Math.random()*150);
+	lightningBlue = (int)(Math.random()*185);
+
 }
